@@ -5,8 +5,10 @@ import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
-  {path: 'calculator', component: CalculatorPanelComponent},
-  {path: 'settings', component: SettingsComponent}
+  {path: 'calculator/average', component: CalculatorPanelComponent},
+  {path: 'calculator/month', component: CalculatorPanelComponent},
+  {path: 'settings', component: SettingsComponent},
+  { path: '**', redirectTo: '/calculator/average', pathMatch: 'full'}
 ];
 
 @NgModule({
