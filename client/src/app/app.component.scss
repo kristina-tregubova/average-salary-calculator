@@ -16,6 +16,17 @@
         background-color: $light;
     }
 
+    .tabs {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0;
+        height: 70px;
+
+        ul {
+            border: 0;
+        }
+    }
+
     app-page-footer {
         position: absolute;
         bottom: 0;

@@ -1,0 +1,9 @@
+@import '../shared/variables.scss';
+
+:host {
+    color: $light;
+
+    strong {
+        color: $green;
+    }
+}

@@ -7,9 +7,13 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
 
 html {
-    background: linear-gradient(to right top, $turquoise, $dark-green);
+    background: linear-gradient($turquoise, $dark-green);
 }
 
 html, body {
     height: 100%;
+}
+
+.label > * {
+    margin-top: 0.5em;
 }

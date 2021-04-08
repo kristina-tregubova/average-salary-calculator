@@ -1,10 +1,11 @@
 :host {
     height: 100%;
-}
-
-.calculator-panel {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    padding: 5%;
     height: 100%;
+
+    & > *:not(:last-child){
+        margin-bottom: 5%;
+    }
 }
