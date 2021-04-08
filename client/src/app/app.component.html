@@ -1,1 +1,27 @@
-<router-outlet></router-outlet>
+<div class="centered-container">
+  <div class="panel">
+      <div class="panel-heading"> Калькулятор средней зарплаты </div>
+      <div class="tabs">
+          <ul>
+              <li class="is-active"><i
+                          class="fas fa-balance-scale"
+                          aria-hidden="true"
+                      ></i>
+                  <a routerLink="/calculator">Средняя за год</a>
+              </li>
+              <li> <i
+                      class="far fa-calendar-alt"
+                      aria-hidden="true"
+                  ></i><a routerLink="/calculator">За конкретный месяц </a></li>
+              <li><i
+                      class="fas fa-cog"
+                      aria-hidden="true"
+                  ></i>
+                  <a routerLink="/settings">Настройки</a>
+              </li>
+          </ul>
+      </div>
+      <router-outlet></router-outlet>
+  </div>
+  <app-page-footer></app-page-footer>
+</div>

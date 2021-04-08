@@ -3,12 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainPanelComponent } from './main-panel/main-panel.component';
+import { FormComponent } from './form/form.component';
+import { PageFooterComponent } from './page-footer/page-footer.component';
+import { ResultsComponent } from './results/results.component';
+import { SettingsComponent } from './settings/settings.component';
+import { CalculatorPanelComponent } from './calculator-panel/calculator-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainPanelComponent
+    CalculatorPanelComponent,
+    FormComponent,
+    PageFooterComponent,
+    ResultsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

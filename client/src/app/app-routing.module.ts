@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainPanelComponent } from './main-panel/main-panel.component';
+import { CalculatorPanelComponent } from './calculator-panel/calculator-panel.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
-  {path: '', component: MainPanelComponent}
+  {path: 'calculator', component: CalculatorPanelComponent},
+  {path: 'settings', component: SettingsComponent}
 ];
 
 @NgModule({
