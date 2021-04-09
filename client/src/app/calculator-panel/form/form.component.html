@@ -1,0 +1,52 @@
+<form
+    [formGroup]="formData"
+    (ngSubmit)="onFormSubmit()"
+>
+    <div class="form-field">
+        <label
+            class="label"
+            for="grossMonthlySalary"
+            ng-required
+        >Введите вашу зарплату для расчетов:</label>
+        <input
+            id="grossMonthlySalary"
+            type="text"
+            class="input"
+            placeholder="Ваша зарплата (gross)"
+            formControlName="grossMonthlySalary"
+            required
+        >
+    </div>
+    <div class="form-field">
+        <label
+            class="label"
+            for="month"
+            ng-required
+        >Выберите месяц, для которого хотите расчитать зарплату:</label>
+        <div class="select">
+            <select
+                id="month"
+                formControlName="month"
+                required
+            >
+                <option *ngFor="let month of months">{{month}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-field">
+        <label class="label checkbox">
+            <input
+                type="checkbox"
+                name="isThirteensSalaryChecked"
+                formControlName="isThirteensSalaryChecked"
+            >Учитывать 13-ую зарплату</label>
+    </div>
+    <div class="buttons-block">
+        <button class="button" (click)="onResetClick()">Сбросить</button>
+        <button
+            type="submit"
+            class="button is-primary"
+            [disabled]="!formData.valid"
+        >Расчитать</button>
+    </div>
+</form>

@@ -4,6 +4,7 @@
     flex-direction: column;
     padding: 5%;
     height: 100%;
+    position: relative;
 
     & > *:not(:last-child){
         margin-bottom: 5%;

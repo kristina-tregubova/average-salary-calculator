@@ -1,9 +1,9 @@
-:host {
+form {
     height: 55%;
     display: flex;
     flex-direction: column;
 
-    & > * {
+    & > *:not(:last-child){
         margin-bottom: 5%;
     }
 
@@ -15,6 +15,10 @@
         }
     }
 
+    .label.checkbox input {
+        margin-right: 15px;
+    }
+
     .buttons-block {
         display: flex;
         justify-content: flex-end;
@@ -22,5 +26,11 @@
         .button:not(:last-child) {
             margin-right: 10px;
         }
+    }
+
+    [ng-required]::after {
+        content: '*';
+        color: red;
+        margin-left: 5px;
     }
 }

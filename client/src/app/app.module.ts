@@ -3,11 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormComponent } from './form/form.component';
+import { FormComponent } from './calculator-panel/form/form.component';
 import { PageFooterComponent } from './page-footer/page-footer.component';
-import { ResultsComponent } from './results/results.component';
+import { ResultsComponent } from './calculator-panel/results/results.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CalculatorPanelComponent } from './calculator-panel/calculator-panel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { CalculatorPanelComponent } from './calculator-panel/calculator-panel.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
