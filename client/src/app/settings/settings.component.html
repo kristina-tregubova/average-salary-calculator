@@ -1,8 +1,26 @@
-<ng-container>
-    <label class="label"> Коэффициент для рассчетов: <input
+<form
+    [formGroup]="formData"
+    (ngSubmit)="onFormSubmit()"
+>
+    <div class="form-field">
+        <label class="label"> Коэффициент для рассчетов:</label>
+        <input
             type="text"
             class="input"
             placeholder="Введите свое значение коэффициента"
-        ></label>
-    <button class="button is-primary reset-button">Сброс</button>
-</ng-container>
+            formControlName="customIndex"
+            required
+        >
+    </div>
+    <div class="buttons-block">
+        <button
+            class="button"
+            (click)="onResetClick()"
+        >Сбросить до исходного</button>
+        <button
+            type="submit"
+            class="button is-primary"
+            [disabled]="!formData.valid || initialValue == formData.value.customIndex"
+        >Сохранить</button>
+    </div>
+</form>

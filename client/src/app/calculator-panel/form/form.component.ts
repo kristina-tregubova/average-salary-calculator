@@ -29,7 +29,7 @@ export class FormComponent {
   public onFormSubmit(): void {
     console.warn(this.formData.value);
 
-    this.calculationResults$ = this.calculatorService.sendFormData(this.formData.value);
+    this.calculationResults$ = this.calculatorService.sendFormData(this.formData.value); // todo: add loader
     this.formData.reset(this.formData.value);
   }
 

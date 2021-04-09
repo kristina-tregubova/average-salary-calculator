@@ -21,3 +21,10 @@ html, body {
 a {
     font-weight: bold;
 }
+
+// asterisk for required fields (put 'ng-required' on label)
+[ng-required]::after {
+    content: '*';
+    color: red;
+    margin-left: 5px;
+}

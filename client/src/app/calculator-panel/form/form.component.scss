@@ -27,10 +27,4 @@ form {
             margin-right: 10px;
         }
     }
-
-    [ng-required]::after {
-        content: '*';
-        color: red;
-        margin-left: 5px;
-    }
 }

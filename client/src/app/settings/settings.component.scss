@@ -1,10 +1,19 @@
-:host {
+form {
     display: flex;
     flex-direction: column;
     padding: 5%;
     height: 100%;
 
-    .reset-button {
-        align-self: flex-end;
+    & > *:not(:last-child){
+        margin-bottom: 5%;
+    }
+
+    .buttons-block {
+        display: flex;
+        justify-content: flex-end;
+
+        .button:not(:last-child) {
+            margin-right: 10px;
+        }
     }
 }
