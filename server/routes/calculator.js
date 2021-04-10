@@ -4,50 +4,44 @@ import CalculationResults from '../models/CalculationResults.js';
 import Index from '../models/Index.js';
 const router = Router();
 
-
-router.get('/getCurrentIndex', async (req, res) => {
+router.get('/getCurrentIndex', async (req, res, next) => {
     try {
         // find existing or create one if none found (first attempt)
-        const index = await Index.findOne({}, async (err, doc) => {
-            if (!doc) {
-                const index = new Index();
-                return index;
-            }
-        });
-        return index.customIndex ? index.customIndex : index.defaultIndex;
+        const index = await Index.findOneAndUpdate({}, {}, { upsert: true, new: true, setDefaultsOnInsert: true });
+        res.status(200).json(index.customIndex ? index.customIndex : index.defaultIndex);
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
     }
 });
 
-router.put('/setCustomIndex', async (req, res) => {
+router.put('/setCustomIndex', async (req, res, next) => {
     try {
         const newIndexValue = req.body;
-        const index = await Index.update({}, {customIndex: newIndexValue});
+        const index = await Index.updateOne({}, { customIndex: newIndexValue });
         await index.save();
-        return index.customIndex;
+        res.status(200).json(index.customIndex);
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
     }
 });
 
-router.get('/resetCustomIndex', async (req, res) => {
+router.get('/resetCustomIndex', async (req, res, next) => {
     try {
-        await Index.update({}, {customIndex: null});
-        return true;
+        await Index.updateOne({}, { customIndex: null });
+        res.status(200).json(true);
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
     }
 });
 
-router.post('/sendFormData', async (req, res) => {
+router.post('/sendFormData', async (req, res, next) => {
     try {
         // todo: add logic
         const formData = req.body;
-        return {averageMonthlySalary: 170000, annualIncome: 2000000, salaryForGivenMonth: 185000, month: 'Январь'};
+        res.status(200).json({ averageMonthlySalary: 170000, annualIncome: 2000000, salaryForGivenMonth: 185000, month: 'Январь' });
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });

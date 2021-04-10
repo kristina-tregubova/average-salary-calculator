@@ -1,15 +1,18 @@
 import express from 'express';
-import  mongoose from 'mongoose';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import config from './config/default.js';
 import calculatorRoutes from './routes/calculator.js';
 
-const PORT = 3000;
+const PORT = config.port;
 const app = express();
 
+app.use(cors());
 app.use(calculatorRoutes);
 
 async function start() {
-    try{
-        await mongoose.connect('mongodb+srv://kristina:12345@cluster0.4atel.mongodb.net/app', {
+    try {
+        await mongoose.connect(config.mongoUri, {
             useNewUrlParser: true,
             useFindAndModify: false,
             useUnifiedTopology: true

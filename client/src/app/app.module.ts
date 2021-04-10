@@ -9,7 +9,8 @@ import { ResultsComponent } from './calculator-panel/results/results.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CalculatorPanelComponent } from './calculator-panel/calculator-panel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptor } from './services/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,11 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: RequestInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
