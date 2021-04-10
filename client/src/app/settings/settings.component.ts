@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { onlyNumbersRegExp } from '../models/helper';
 import { CalculatorService } from '../services/calculator.service';
@@ -13,11 +13,12 @@ export class SettingsComponent implements OnInit {
 
   initialValue: number;
   formData: FormGroup = new FormGroup({
-    customIndex: new FormControl('', [Validators.required, Validators.pattern(onlyNumbersRegExp)]) // non-integral numbers?
+    index: new FormControl('', [Validators.required, Validators.pattern(onlyNumbersRegExp)]) // non-integral numbers?
   })
 
   constructor(
-    private calculatorService: CalculatorService
+    private calculatorService: CalculatorService,
+    private detector: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -26,21 +27,27 @@ export class SettingsComponent implements OnInit {
 
   private getCurrentIndexValue(): void {
     this.calculatorService.getCurrentIndex().subscribe((value) => {
-      this.formData.patchValue({ customIndex: value });
-      this.initialValue = value;
+      this.setNewIndexValue(value);
     });
   }
 
   public onFormSubmit(): void {
-    this.calculatorService.setCustomIndex(this.formData.value); // todo: add error handling
-    this.formData.reset(this.formData.value);
+    this.calculatorService.setCustomIndex(this.formData.value).subscribe((value) => {
+      this.setNewIndexValue(value);
+    }); // todo: add error handling
   }
 
   public onResetClick(): void {
     this.formData.reset();
     this.calculatorService.resetCustomIndex().subscribe((value) => {
-      this.formData.patchValue({ customIndex: value })
+      this.setNewIndexValue(value);
     });
+  }
+
+  private setNewIndexValue(value: number): void {
+    this.formData.reset({index: value});
+      this.initialValue = value;
+      this.detector.markForCheck();
   }
 
 }

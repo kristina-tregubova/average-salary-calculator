@@ -28,3 +28,8 @@ a {
     color: red;
     margin-left: 5px;
 }
+
+input.ng-invalid.ng-dirty,  input.ng-invalid.ng-dirty:focus{
+    border-color: red;
+    box-shadow: 0 0 0 0.125em #ff00005e;
+}

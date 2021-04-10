@@ -8,19 +8,20 @@
             type="text"
             class="input"
             placeholder="Введите свое значение коэффициента"
-            formControlName="customIndex"
+            formControlName="index"
             required
         >
     </div>
     <div class="buttons-block">
         <button
+            type="button"
             class="button"
             (click)="onResetClick()"
         >Сбросить до исходного</button>
         <button
             type="submit"
+            [disabled]="!formData.valid || initialValue == formData.value.index"
             class="button is-primary"
-            [disabled]="!formData.valid || initialValue == formData.value.customIndex"
         >Сохранить</button>
     </div>
 </form>

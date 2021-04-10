@@ -48,6 +48,7 @@
         <button
             class="button"
             type="button"
+            [disabled]="!formData.dirty"
             (click)="onResetClick()"
         >Сбросить</button>
         <button

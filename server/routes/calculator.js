@@ -17,20 +17,20 @@ router.get('/getCurrentIndex', async (req, res, next) => {
 
 router.put('/setCustomIndex', async (req, res, next) => {
     try {
-        const newIndexValue = req.body;
-        const index = await Index.updateOne({}, { customIndex: newIndexValue });
-        await index.save();
-        res.status(200).json(index.customIndex);
+        const newIndexValue = parseInt(req.body.index);
+        await Index.updateOne({}, { customIndex: newIndexValue });
+        res.status(200).json(newIndexValue);
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });
     }
 });
 
+// resets custom and returns default
 router.get('/resetCustomIndex', async (req, res, next) => {
     try {
-        await Index.updateOne({}, { customIndex: null });
-        res.status(200).json(true);
+        const index = await Index.findOneAndUpdate({}, { customIndex: null });
+        res.status(200).json(index.defaultIndex);
     } catch (e) {
         console.error(e);
         res.status(500).json({ message: "Что-то пошло не так, попробуйте снова" });

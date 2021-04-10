@@ -1,15 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { CalculationResults } from '../models/form';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  }),
-  withCredentials: true,
-};
 
 @Injectable({
   providedIn: 'root'
@@ -24,19 +16,19 @@ export class CalculatorService {
 
   sendFormData(formData: FormData): Observable<CalculationResults> {
     const url = `${this.baseUrl}/sendFormData`;
-    return this.http.post<CalculationResults>(url, formData, httpOptions);
+    return this.http.post<CalculationResults>(url, formData);
   }
 
   // returns custom index if there is any, otherwise -> default
   getCurrentIndex(): Observable<number> {
     const url = `${this.baseUrl}/getCurrentIndex`;
-    return this.http.get<number>(url, httpOptions);
+    return this.http.get<number>(url);
   }
 
   // returns custom index
-  setCustomIndex(indexValue: number): Observable<number> {
-    const url = `${this.baseUrl}/setCurrentIndex`;
-    return this.http.put<number>(url, indexValue);
+  setCustomIndex(index: { [key: string]: string; } ): Observable<number> {
+    const url = `${this.baseUrl}/setCustomIndex`;
+    return this.http.put<number>(url, index);
   }
 
   // return default index
