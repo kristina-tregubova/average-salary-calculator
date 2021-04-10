@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
 const schema = new Schema({
     grossMonthlySalary: {type: Number, required: true},
@@ -6,4 +7,5 @@ const schema = new Schema({
     isThirteensSalaryChecked: {type: Boolean} 
 });
 
-export const FormData = model('FormData', schema);
+const FormData = model('FormData', schema);
+export default FormData;

@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
 const schema = new Schema({
     defaultIndex: {
@@ -9,9 +10,9 @@ const schema = new Schema({
     customIndex: {
         type: Number,
         trim: true,
-        required: 'Необходимо передать значение кэффициента',
-        validate: [validateLocalStrategyProperty, 'Некорректный формат коэффициента']
+        required: 'Необходимо передать значение кэффициента'
     }
 });
 
-export const FormData = model('Index', schema);
+const Index = model('Index', schema);
+export default Index;

@@ -1,8 +1,7 @@
 import Router from 'express';
-import FormData from '../models/FormData';
-import CalculationResults from '../models/CalculationResults';
-import Index from '../models/Index';
-import { check, validationResults } from 'express-validator';
+import FormData from '../models/FormData.js';
+import CalculationResults from '../models/CalculationResults.js';
+import Index from '../models/Index.js';
 const router = Router();
 
 
@@ -22,7 +21,7 @@ router.get('/getCurrentIndex', async (req, res) => {
     }
 });
 
-router.post('/setCustomIndex', async (req, res) => {
+router.put('/setCustomIndex', async (req, res) => {
     try {
         const newIndexValue = req.body;
         const index = await Index.update({}, {customIndex: newIndexValue});
@@ -55,4 +54,5 @@ router.post('/sendFormData', async (req, res) => {
     }
 });
 
-export const calculatorRoutes;
+const calculatorRoutes = router;
+export default calculatorRoutes;

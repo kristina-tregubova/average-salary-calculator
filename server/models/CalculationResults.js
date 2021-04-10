@@ -1,4 +1,5 @@
-import { Schema, model } from 'mongoose';
+import pkg from 'mongoose';
+const { Schema, model } = pkg;
 
 const schema = new Schema({
     averageMonthlySalary: {type: Number},
@@ -7,4 +8,5 @@ const schema = new Schema({
     month: {type: String}
 });
 
-export const FormData = model('CalculationResults', schema);
+const CalculatorRoutes = model('CalculationResults', schema);
+export default CalculatorRoutes;

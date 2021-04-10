@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { CalculationResults } from '../models/form';
 
 @Injectable({
@@ -7,26 +9,37 @@ import { CalculationResults } from '../models/form';
 })
 export class CalculatorService {
 
-  constructor() { }
+  readonly baseUrl = 'localhost:3000';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
+  constructor(
+    private http: HttpClient
+  ) { }
 
   sendFormData(formData: FormData): Observable<CalculationResults> {
-    // stub
-    const results: CalculationResults = {averageMonthlySalary: 170000, annualIncome: 2000000, salaryForGivenMonth: 185000, month: 'Январь'};
-    return of(results);
+    const url = `${this.baseUrl}/sendFormData`;
+    return this.http.post<CalculationResults>(url, formData, this.httpOptions);
   }
 
+  // returns custom index if there is any, otherwise -> default
   getCurrentIndex(): Observable<number> {
-    // stub
-    return of(2);
+    const url = `${this.baseUrl}/getCurrentIndex`;
+    return this.http.get<number>(url);
   }
 
-  setCustomIndex(indexValue: number): Observable<boolean> {
-    // stub
-    return of(true);
+  // returns custom index
+  setCustomIndex(indexValue: number): Observable<number> {
+    const url = `${this.baseUrl}/setCurrentIndex`;
+    return this.http.put<number>(url, indexValue, this.httpOptions);
   }
 
+  // return default index
   resetCustomIndex(): Observable<number> {
-    // stub
-    return of(2);
+    const url = `${this.baseUrl}/resetCustomIndex`;
+    return this.http.get<number>(url);
   }
 }

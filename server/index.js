@@ -1,6 +1,6 @@
 import express from 'express';
 import  mongoose from 'mongoose';
-import calculatorRoutes from './routes/calculator';
+import calculatorRoutes from './routes/calculator.js';
 
 const PORT = 3000;
 const app = express();
@@ -15,7 +15,7 @@ async function start() {
             useUnifiedTopology: true
         });
         app.listen(PORT, () => {
-            console.log(`Server hass been started on port ${PORT}...`);
+            console.log(`Server has been started on port ${PORT}...`);
         });
     } catch (e) {
         console.error(e);
