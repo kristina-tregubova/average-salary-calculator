@@ -11,7 +11,7 @@ export class CalculatorService {
 
   sendFormData(formData: FormData): Observable<CalculationResults> {
     // stub
-    const results: CalculationResults = {averageMonthlySalary: 170000, annualIncome: 2000000, salaryForGivenMonth: null};
+    const results: CalculationResults = {averageMonthlySalary: 170000, annualIncome: 2000000, salaryForGivenMonth: 185000, month: 'Январь'};
     return of(results);
   }
 

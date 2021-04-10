@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CalculationResults, FormType } from '../../models/form';
 
 @Component({
   selector: 'app-results',
@@ -6,11 +7,12 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./results.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent {
 
-  constructor() { }
+  @Input() calculationResults: CalculationResults;
+  @Input() formType: FormType;
 
-  ngOnInit() {
-  }
+  readonly formTypes = FormType;
+
 
 }

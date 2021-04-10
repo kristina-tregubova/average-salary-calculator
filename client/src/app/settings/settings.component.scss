@@ -1,19 +1,23 @@
+:host {
+  height: 100%;
+}
+
 form {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  height: 100%;
+
+  & > *:not(:last-child) {
+    margin-bottom: 5%;
+  }
+
+  .buttons-block {
     display: flex;
-    flex-direction: column;
-    padding: 5%;
-    height: 100%;
+    justify-content: flex-end;
 
-    & > *:not(:last-child){
-        margin-bottom: 5%;
+    .button:not(:last-child) {
+      margin-right: 10px;
     }
-
-    .buttons-block {
-        display: flex;
-        justify-content: flex-end;
-
-        .button:not(:last-child) {
-            margin-right: 10px;
-        }
-    }
+  }
 }

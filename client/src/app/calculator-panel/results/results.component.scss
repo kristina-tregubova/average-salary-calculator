@@ -6,6 +6,11 @@
   margin-bottom: 7%;
 
   .result-item {
+    min-height: 100px;
+
+    &:only-child {
+      min-height: 160px;
+    }
 
     &:not(:last-child) {
         margin-bottom: 5%;

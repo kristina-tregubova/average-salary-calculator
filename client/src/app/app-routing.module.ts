@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: 'calculator/average', component: CalculatorPanelComponent},
   {path: 'calculator/month', component: CalculatorPanelComponent},
   {path: 'settings', component: SettingsComponent},
-  { path: '**', redirectTo: '/calculator/average', pathMatch: 'full'}
+  { path: '**', redirectTo: '/calculator/average', pathMatch: 'full'},
+  { path: '', redirectTo: '/calculator/average', pathMatch: 'full'}
 ];
 
 @NgModule({

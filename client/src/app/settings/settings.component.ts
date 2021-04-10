@@ -31,12 +31,12 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  onFormSubmit(): void {
+  public onFormSubmit(): void {
     this.calculatorService.setCustomIndex(this.formData.value); // todo: add error handling
     this.formData.reset(this.formData.value);
   }
 
-  onResetClick(): void {
+  public onResetClick(): void {
     this.formData.reset();
     this.calculatorService.resetCustomIndex().subscribe((value) => {
       this.formData.patchValue({ customIndex: value })
