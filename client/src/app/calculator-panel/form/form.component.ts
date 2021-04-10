@@ -10,11 +10,10 @@ import { CalculationResults, FormType } from '../../models/form';
   styleUrls: ['./form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
 
   formData: FormGroup = new FormGroup({
     grossMonthlySalary: new FormControl('', [Validators.required, Validators.minLength(4), Validators.pattern(onlyNumbersRegExp)]),
-    month: new FormControl('', Validators.required),
     isThirteensSalaryChecked: new FormControl(''),
   });
 
@@ -28,6 +27,16 @@ export class FormComponent {
   constructor(
     private calculatorService: CalculatorService
   ) {}
+
+  ngOnInit() {
+    this.defineControlsForFormType();
+  }
+
+  private defineControlsForFormType(): void {
+    if (this.formType === FormType.SalaryForGivenMonth) {
+      this.formData.addControl('month', new FormControl(Months[0], Validators.required));
+    }
+  }
 
   public onFormSubmit(): void {
     console.warn(this.formData.value);

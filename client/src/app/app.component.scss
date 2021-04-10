@@ -11,7 +11,9 @@
     .panel {
         display: flex;
         flex-direction: column;
-        width: 45%;
+        width: 65%;
+        max-width: 750px;
+        min-width: 520px;
         height: 75%;
         background-color: $light;
     }
