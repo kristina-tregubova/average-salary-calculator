@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CalculationResults } from '../models/form';
+import { Indices } from '../models/indices';
 
 @Injectable({
   providedIn: 'root'
@@ -19,21 +20,24 @@ export class CalculatorService {
     return this.http.post<CalculationResults>(url, formData);
   }
 
-  // returns custom index if there is any, otherwise -> default
-  getCurrentIndex(): Observable<number> {
-    const url = `${this.baseUrl}/getCurrentIndex`;
-    return this.http.get<number>(url);
+  getCurrentIndices(): Observable<Indices> {
+    const url = `${this.baseUrl}/getCurrentIndices`;
+    return this.http.get<Indices>(url);
   }
 
-  // returns custom index
-  setCustomIndex(index: { [key: string]: string; } ): Observable<number> {
-    const url = `${this.baseUrl}/setCustomIndex`;
-    return this.http.put<number>(url, index);
+  setCustomIndices(indices: Indices): Observable<Indices> {
+    const url = `${this.baseUrl}/setCustomIndices`;
+    return this.http.put<Indices>(url, indices);
   }
 
-  // return default index
-  resetCustomIndex(): Observable<number> {
+  resetCustomIndex(key: string): Observable<Indices> {
+    const keyValuePair = { keyName: key };
     const url = `${this.baseUrl}/resetCustomIndex`;
-    return this.http.get<number>(url);
+    return this.http.put<Indices>(url, keyValuePair);
+  }
+
+  resetAllIndices(): Observable<Indices> {
+    const url = `${this.baseUrl}/resetAllIndices`;
+    return this.http.get<Indices>(url);
   }
 }

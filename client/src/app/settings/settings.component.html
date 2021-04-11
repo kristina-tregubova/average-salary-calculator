@@ -2,25 +2,30 @@
     [formGroup]="formData"
     (ngSubmit)="onFormSubmit()"
 >
-    <div class="form-field">
-        <label class="label"> Коэффициент для рассчетов:</label>
-        <input
-            type="text"
-            class="input"
-            placeholder="Введите свое значение коэффициента"
-            formControlName="index"
-            required
-        >
+    <div
+        *ngFor="let index of indices | keyvalue"
+        class="form-field"
+    >
+        <label class="label"> Коэффициент {{index.key | uppercase}}: <input
+                type="text"
+                class="input"
+                formControlName="{{index.key}}"
+            ></label>
+        <button
+            type="button"
+            class="button"
+            (click)="onResetClick(index.key)"
+        >Сбросить</button>
     </div>
     <div class="buttons-block">
         <button
             type="button"
             class="button"
-            (click)="onResetClick()"
-        >Сбросить до исходного</button>
+            (click)="onResetAllClick()"
+        >Сбросить всё</button>
         <button
             type="submit"
-            [disabled]="!formData.valid || initialValue == formData.value.index"
+            [disabled]="formData.invalid || formData.pristine"
             class="button is-primary"
         >Сохранить</button>
     </div>

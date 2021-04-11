@@ -8,13 +8,20 @@ form {
   padding: 5%;
   height: 100%;
 
-  & > *:not(:last-child) {
-    margin-bottom: 5%;
+  .form-field {
+    display: flex;
+
+    .button {
+      align-self: flex-end;
+      margin-bottom: 0.5em;
+      margin-left: 15px;
+    }
   }
 
   .buttons-block {
     display: flex;
     justify-content: flex-end;
+    margin-top: 5%;
 
     .button:not(:last-child) {
       margin-right: 10px;

@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import config from './config/default.js';
-import calculatorRoutes from './routes/calculator.js';
+import calculatorRoutes from './routes/calculatorRoutes.js';
 
 const PORT = config.port;
 const app = express();
