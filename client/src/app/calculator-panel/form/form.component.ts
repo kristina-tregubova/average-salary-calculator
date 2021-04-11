@@ -39,11 +39,9 @@ export class FormComponent implements OnInit {
   }
 
   public onFormSubmit(): void {
-    console.warn(this.formData.value);
-
     this.calculatorService.sendFormData(this.formData.value).subscribe((res) => {
       this.gotCalculationResults.emit(res);
-    }); // todo: add loader
+    });
     this.formData.reset(this.formData.value);
   }
 

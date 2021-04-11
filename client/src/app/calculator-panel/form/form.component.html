@@ -32,7 +32,7 @@
                 formControlName="month"
                 required
             >
-                <option *ngFor="let month of months">{{month}}</option>
+                <option *ngFor="let month of months; let index">{{month}}</option>
             </select>
         </div>
     </div>
