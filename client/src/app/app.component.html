@@ -3,23 +3,17 @@
         <div class="panel-heading"> Калькулятор средней зарплаты </div>
         <div class="tabs is-fullwidth">
             <ul>
-                <li
-                    routerLinkActive="is-active"
-                ><i
+                <li routerLinkActive="is-active"><i
                         class="fas fa-balance-scale"
                         aria-hidden="true"
                     ></i>
                     <a routerLink="/calculator/average">Средняя за год</a>
                 </li>
-                <li
-                    routerLinkActive="is-active"
-                > <i
+                <li routerLinkActive="is-active"> <i
                         class="far fa-calendar-alt"
                         aria-hidden="true"
                     ></i><a routerLink="/calculator/month">За конкретный месяц </a></li>
-                <li
-                    routerLinkActive="is-active"
-                ><i
+                <li routerLinkActive="is-active"><i
                         class="fas fa-cog"
                         aria-hidden="true"
                     ></i>
@@ -28,6 +22,7 @@
             </ul>
         </div>
         <router-outlet></router-outlet>
+        <app-loader *ngIf="loading$ | async"></app-loader>
     </div>
     <app-page-footer></app-page-footer>
 </div>

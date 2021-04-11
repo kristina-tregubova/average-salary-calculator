@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { onlyNumbersRegExp } from '../models/helper';
 import { CalculatorService } from '../services/calculator.service';
+import { LoaderService } from '../services/loader.service';
 
 @Component({
   selector: 'app-settings',
@@ -18,7 +19,8 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private calculatorService: CalculatorService,
-    private detector: ChangeDetectorRef
+    private detector: ChangeDetectorRef,
+    private loader: LoaderService
   ) { }
 
   ngOnInit() {
@@ -38,7 +40,6 @@ export class SettingsComponent implements OnInit {
   }
 
   public onResetClick(): void {
-    this.formData.reset();
     this.calculatorService.resetCustomIndex().subscribe((value) => {
       this.setNewIndexValue(value);
     });

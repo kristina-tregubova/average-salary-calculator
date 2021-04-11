@@ -1,37 +1,38 @@
-@import './shared/variables.scss';
+@import "./shared/variables.scss";
 
 .centered-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  .panel {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    width: 65%;
+    max-width: 750px;
+    min-width: 520px;
+    height: 75%;
+    position: relative;
+    background-color: $light;
+  }
 
-    .panel {
-        display: flex;
-        flex-direction: column;
-        width: 65%;
-        max-width: 750px;
-        min-width: 520px;
-        height: 75%;
-        background-color: $light;
+  .tabs {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    height: 70px;
+
+    ul {
+      border: 0;
     }
+  }
 
-    .tabs {
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-bottom: 0;
-        height: 70px;
-
-        ul {
-            border: 0;
-        }
-    }
-
-    app-page-footer {
-        position: absolute;
-        bottom: 0;
-        margin-bottom: 2%;
-    }
+  app-page-footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 2%;
+  }
 }
