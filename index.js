@@ -7,7 +7,7 @@ import calculatorRoutes from './routes/calculatorRoutes.js';
 const PORT = config.port;
 const app = express();
 
-app.use(express.static("client/dist"));
+app.use(express.static("client/dist/client"));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
