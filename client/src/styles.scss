@@ -1,36 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import './app/shared/variables.scss';
-@import '../node_modules/bulma/bulma.sass';
+@import "./app/shared/variables.scss";
+@import "../node_modules/bulma/bulma.sass";
 
 // Import Fonts (Lato and Nunito)
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700");
 
 html {
-    background: linear-gradient($turquoise, $dark-green);
-    font-size: 12px;
+  background: linear-gradient($turquoise, $dark-green);
+  font-size: 12px;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 .label > * {
-    margin-top: 0.5em;
+  margin-top: 0.5em;
 }
 
 a {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 // asterisk for required fields (put 'ng-required' on label)
 [ng-required]::after {
-    content: '*';
-    color: red;
-    margin-left: 5px;
+  content: "*";
+  color: red;
+  margin-left: 5px;
 }
 
-input.ng-invalid.ng-dirty,  input.ng-invalid.ng-dirty:focus{
-    border-color: red;
-    box-shadow: 0 0 0 0.125em #ff00005e;
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-dirty:focus {
+  border-color: red;
+  box-shadow: 0 0 0 0.125em #ff00005e;
+}
+
+// just a quick solution for small windows, not a serious one
+@media (max-width: 400px) {
+  .panel {
+    transform: scale(0.7);
+  }
+
+  app-results .result-item {
+    min-height: 5em;
+  }
+
+  app-settings .buttons-block {
+      margin-top: 3%;
+  }
 }
