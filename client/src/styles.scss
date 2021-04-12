@@ -42,12 +42,4 @@ input.ng-invalid.ng-dirty:focus {
   .panel {
     transform: scale(0.7);
   }
-
-  app-results .result-item {
-    min-height: 5em;
-  }
-
-  app-settings .buttons-block {
-      margin-top: 3%;
-  }
 }

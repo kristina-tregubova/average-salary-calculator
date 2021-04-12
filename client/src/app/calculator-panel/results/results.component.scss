@@ -9,7 +9,7 @@
     min-height: 7em;
 
     &:not(:last-child) {
-        margin-bottom: 5%;
+      margin-bottom: 5%;
     }
 
     h3 {
@@ -23,5 +23,12 @@
       font-weight: bold;
       color: $green;
     }
+  }
+}
+
+// just a quick solution for small windows, not a serious one
+@media (max-width: 400px) {
+  .result-item {
+    min-height: 5em !important;
   }
 }

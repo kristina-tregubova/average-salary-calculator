@@ -28,3 +28,10 @@ form {
     }
   }
 }
+
+// just a quick solution for small windows, not a serious one
+@media (max-width: 400px) {
+  .buttons-block {
+    margin-top: 3% !important;
+  }
+}
