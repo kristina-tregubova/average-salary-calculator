@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { LoaderService } from './services/loader.service';
+import { TranslateService } from '@ngx-translate/core';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +10,13 @@ import { LoaderService } from './services/loader.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Калькулятор заплат';
   loading$: BehaviorSubject<boolean>;
 
   constructor(
-    private loader: LoaderService
+    private loader: LoaderService,
+    private translateService: TranslateService
   ) {
     this.loading$ = this.loader.loading$;
+    this.translateService.use(environment.defaultLocale);
   }
 }

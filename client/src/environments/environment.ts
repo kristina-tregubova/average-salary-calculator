@@ -6,7 +6,9 @@ import config from '../../../config/default.js';
 
 export const environment = {
   production: false,
-  baseUrl: config.baseUrl
+  baseUrl: config.baseUrl,
+  locales: ['ru'],
+  defaultLocale: 'ru',
 };
 
 /*

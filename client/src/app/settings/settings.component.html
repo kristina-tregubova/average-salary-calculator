@@ -6,7 +6,7 @@
         *ngFor="let index of indices | keyvalue"
         class="form-field"
     >
-        <label class="label"> Коэффициент {{index.key | uppercase}}: <input
+        <label class="label"> {{ 'SETTINGS.INDEX' | translate }} {{index.key | uppercase}}: <input
                 type="text"
                 class="input"
                 formControlName="{{index.key}}"
@@ -15,18 +15,18 @@
             type="button"
             class="button"
             (click)="onResetClick(index.key)"
-        >Сбросить</button>
+        >{{ 'BUTTON.RESET' | translate }}</button>
     </div>
     <div class="buttons-block">
         <button
             type="button"
             class="button"
             (click)="onResetAllClick()"
-        >Сбросить всё</button>
+        >{{ 'BUTTON.RESET-ALL' | translate }}</button>
         <button
             type="submit"
             [disabled]="formData.invalid || formData.pristine"
             class="button is-primary"
-        >Сохранить</button>
+        >{{ 'BUTTON.SAVE' | translate }}</button>
     </div>
 </form>

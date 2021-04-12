@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "update-locale": "ngx-translate-extract -i ./src -o src/assets/locale/ru.json --sort --format namespaced-json"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +20,8 @@
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
-    "@fortawesome/angular-fontawesome": "^0.5.0",
+    "@ngx-translate/core": "^12.1.2",
+    "@ngx-translate/http-loader": "^4.0.0",
     "bulma": "^0.9.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
@@ -30,6 +32,7 @@
     "@angular/cli": "~8.3.1",
     "@angular/compiler-cli": "~8.2.3",
     "@angular/language-service": "~8.2.3",
+    "@biesbjerg/ngx-translate-extract": "^7.0.3",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",

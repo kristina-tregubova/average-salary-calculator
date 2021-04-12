@@ -1,0 +1,32 @@
+{
+	"MAIN": {
+		"PANEL-HEADING": "Калькулятор средней зарплаты",
+        "TAB-AVERAGE": "Средняя за год",
+        "TAB-MONTH": "За конкретный месяц",
+        "TAB-SETTINGS": "Настройки"
+	},
+    "FORM": {
+        "TYPE-SALARY": "Введите вашу зарплату для расчетов (gross)",
+        "CHOOSE-MONTH": "Выберите месяц, для которого хотите расчитать зарплату",
+        "CHOOSE-THIRTEENS-SALARY": "Учитывать 13-ую зарплату"
+    },
+    "BUTTON": {
+        "RESET": "Сбросить",
+        "RESET-ALL": "Сбросить всё",
+        "SAVE": "Сохранить",
+        "CALCULATE": "Расчитать"
+    },
+    "RESULTS": {
+        "AVERAGE-SALARY": "Ваш средний заработок в месяц (net)",
+        "ANNUAL-INCOME": "Общий доход за год (net)",
+        "SALARY-MONTH": "Ваш заработок (net) за",
+        "RUB": "руб."
+    },
+    "SETTINGS": {
+        "INDEX": "Коэффициент"
+    },
+    "FOOTER": {
+        "TEXT": "Created with love in Saint-Petersburg. Check out the source code at",
+        "LINK-TEXT": "my github repository"
+    }
+}

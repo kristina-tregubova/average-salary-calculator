@@ -7,7 +7,7 @@
             class="label"
             for="grossMonthlySalary"
             ng-required
-        >Введите вашу зарплату для расчетов:</label>
+        >{{ 'FORM.TYPE-SALARY' | translate }}:</label>
         <input
             id="grossMonthlySalary"
             type="text"
@@ -25,7 +25,7 @@
             class="label"
             for="month"
             ng-required
-        >Выберите месяц, для которого хотите расчитать зарплату:</label>
+        >{{ 'FORM.CHOOSE-MONTH' | translate }}:</label>
         <div class="select">
             <select
                 id="month"
@@ -42,7 +42,7 @@
                 type="checkbox"
                 name="isThirteensSalaryChecked"
                 formControlName="isThirteensSalaryChecked"
-            >Учитывать 13-ую зарплату</label>
+            >{{ 'FORM.CHOOSE-THIRTEENS-SALARY' | translate }}</label>
     </div>
     <div class="buttons-block">
         <button
@@ -50,11 +50,11 @@
             type="button"
             [disabled]="!formData.dirty"
             (click)="onResetClick()"
-        >Сбросить</button>
+        >{{ 'BUTTON.RESET' | translate }}</button>
         <button
             type="submit"
             class="button is-primary"
             [disabled]="!formData.valid"
-        >Расчитать</button>
+        >{{ 'BUTTON.CALCULATE' | translate }}</button>
     </div>
 </form>

@@ -1,23 +1,16 @@
 <div class="centered-container">
     <div class="panel">
-        <div class="panel-heading"> Калькулятор средней зарплаты </div>
+        <div class="panel-heading"> {{ 'MAIN.PANEL-HEADING' | translate }} </div>
         <div class="tabs is-fullwidth">
             <ul>
-                <li routerLinkActive="is-active"><i
-                        class="fas fa-balance-scale"
-                        aria-hidden="true"
-                    ></i>
-                    <a routerLink="/calculator/average">Средняя за год</a>
+                <li routerLinkActive="is-active">
+                    <a routerLink="/calculator/average">{{ 'MAIN.TAB-AVERAGE' | translate }}</a>
                 </li>
-                <li routerLinkActive="is-active"> <i
-                        class="far fa-calendar-alt"
-                        aria-hidden="true"
-                    ></i><a routerLink="/calculator/month">За конкретный месяц </a></li>
-                <li routerLinkActive="is-active"><i
-                        class="fas fa-cog"
-                        aria-hidden="true"
-                    ></i>
-                    <a routerLink="/settings">Настройки</a>
+                <li routerLinkActive="is-active">
+                    <a routerLink="/calculator/month">{{ 'MAIN.TAB-MONTH' | translate }} </a>
+                </li>
+                <li routerLinkActive="is-active">
+                    <a routerLink="/settings">{{ 'MAIN.TAB-SETTINGS' | translate }}</a>
                 </li>
             </ul>
         </div>

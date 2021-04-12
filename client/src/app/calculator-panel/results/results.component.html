@@ -1,14 +1,14 @@
 <ng-container>
-    <div *ngIf="formType === formTypes.AverageMonthlySalary" class="result-item">
-        <h3>Ваш средний заработок в месяц (net):</h3>
-        <p *ngIf="calculationResults">{{calculationResults?.averageMonthlySalary}} руб.</p>
+    <div *ngIf="calculationResults && formType === formTypes.AverageMonthlySalary" class="result-item">
+        <h3>{{ "RESULTS.AVERAGE-SALARY" | translate }}:</h3>
+        <p>{{calculationResults?.averageMonthlySalary}} {{ "RESULTS.RUB" | translate }}</p>
     </div>
-    <div *ngIf="formType === formTypes.AverageMonthlySalary" class="result-item">
-        <h3>Общий доход за год (net):</h3>
-        <p *ngIf="calculationResults">{{calculationResults?.annualIncome}} руб.</p>
+    <div *ngIf="calculationResults && formType === formTypes.AverageMonthlySalary" class="result-item">
+        <h3>{{ "RESULTS.ANNUAL-INCOME" | translate }}:</h3>
+        <p>{{calculationResults?.annualIncome}} {{ "RESULTS.RUB" | translate }}</p>
     </div>
-    <div *ngIf="formType === formTypes.SalaryForGivenMonth" class="result-item">
-        <h3>Ваш заработок за {{(calculationResults?.month | lowercase) || '...'}} (net):</h3>
-        <p *ngIf="calculationResults">{{calculationResults?.salaryForGivenMonth}} руб.</p>
+    <div *ngIf="calculationResults && formType === formTypes.SalaryForGivenMonth" class="result-item">
+        <h3>{{ "RESULTS.SALARY-MONTH" | translate }} {{(calculationResults?.month | lowercase) || '...'}}:</h3>
+        <p>{{calculationResults?.salaryForGivenMonth}} {{ "RESULTS.RUB" | translate }}</p>
     </div>
 </ng-container>
