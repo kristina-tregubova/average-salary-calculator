@@ -1,5 +1,8 @@
+import config from '../../../config/production.js';
+
 export const environment = {
-  production: true,
+  production: false,
+  baseUrl: config.baseUrl,
   locales: ['ru'],
-  defaultLocale: 'ru'
+  defaultLocale: 'ru',
 };
