@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 import calculatorRoutes from './routes/calculatorRoutes.js';
 
 const PORT = process.env.PORT || config.port;
+const URI = process.env.MONGODB_URI || config.mongoUri;
 const app = express();
 
 app.use(cors());
@@ -25,7 +26,7 @@ app.get('*', (req, res) => {
 
 async function start() {
     try {
-        await mongoose.connect(config.mongoUri, {
+        await mongoose.connect(URI, {
             useNewUrlParser: true,
             useFindAndModify: false,
             useUnifiedTopology: true
