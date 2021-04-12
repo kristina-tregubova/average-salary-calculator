@@ -46,11 +46,9 @@ export const calculator = {
         let result = 0;
         if (BONUS_MONTHS.includes(this.formData.month)) {
             result += +this.calculateBonus();
-            console.log(result)
 
             if (this.formData.month === MONTHS[MONTHS.length - 1] && this.formData.isThirteensSalaryChecked) {
                 result += +this.formData.grossMonthlySalary;
-                console.log(result)
             }
         }
         result += +this.formData.grossMonthlySalary;
