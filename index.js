@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import calculatorRoutes from './routes/calculatorRoutes.js';
 
-const PORT = config.port;
+const PORT = process.env.PORT || config.port;
 const app = express();
 
 app.use(cors());
