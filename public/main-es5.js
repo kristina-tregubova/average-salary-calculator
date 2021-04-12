@@ -966,20 +966,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ../environments/environment */
     "./src/environments/environment.ts");
 
-    var AppComponent = function AppComponent(loader, translateService) {
-      _classCallCheck(this, AppComponent);
+    var AppComponent = /*#__PURE__*/function () {
+      function AppComponent(loader, translateService, detector) {
+        _classCallCheck(this, AppComponent);
 
-      this.loader = loader;
-      this.translateService = translateService;
-      this.loading$ = this.loader.loading$;
-      this.translateService.use(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].defaultLocale);
-    };
+        this.loader = loader;
+        this.translateService = translateService;
+        this.detector = detector;
+        this.loading$ = this.loader.loading$;
+        this.translateService.use(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].defaultLocale);
+      }
+
+      _createClass(AppComponent, [{
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          this.detector.markForCheck();
+        }
+      }]);
+
+      return AppComponent;
+    }();
 
     AppComponent.ctorParameters = function () {
       return [{
         type: _services_loader_service__WEBPACK_IMPORTED_MODULE_2__["LoaderService"]
       }, {
         type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"]
+      }, {
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
       }];
     };
 
@@ -988,6 +1002,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./app.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html"))["default"],
+      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./app.component.scss */
       "./src/app/app.component.scss"))["default"]]

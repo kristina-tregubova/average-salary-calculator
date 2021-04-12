@@ -461,21 +461,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(loader, translateService) {
+    constructor(loader, translateService, detector) {
         this.loader = loader;
         this.translateService = translateService;
+        this.detector = detector;
         this.loading$ = this.loader.loading$;
         this.translateService.use(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].defaultLocale);
+    }
+    ngAfterViewInit() {
+        this.detector.markForCheck();
     }
 };
 AppComponent.ctorParameters = () => [
     { type: _services_loader_service__WEBPACK_IMPORTED_MODULE_2__["LoaderService"] },
-    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] }
+    { type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_3__["TranslateService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
+        changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")).default]
     })
 ], AppComponent);
