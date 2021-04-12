@@ -11,9 +11,14 @@ app.use(express.static("client/dist/client"));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: true
+    extended: true
 }));
 app.use(calculatorRoutes);
+app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+    res.sendFile('public/index.html');
+});
 
 async function start() {
     try {
