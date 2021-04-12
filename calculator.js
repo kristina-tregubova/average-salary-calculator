@@ -32,13 +32,13 @@ export const calculator = {
     },
 
     calculateAverageMonthlySalary(annualIncome) {
-        return annualIncome / 12;
+        return Math.round(annualIncome / 12);
     },
 
     calculateAnnualIncome() {
         const bonus = this.calculateBonus();
         const numberOfMonths = this.getNumberOfMonths();
-        const grossAnnualIncome = this.formData.grossMonthlySalary * numberOfMonths + bonus * bonusMonths.length;
+        const grossAnnualIncome = this.formData.grossMonthlySalary * numberOfMonths + bonus * BONUS_MONTHS.length;
         return this.getNetSalary(grossAnnualIncome);
     },
 
@@ -64,7 +64,7 @@ export const calculator = {
     },
 
     getNetSalary(grossSalary) {
-        return grossSalary * (1 - (this.indices.x1 * 0.01));
+        return Math.round(grossSalary * (1 - (this.indices.x1 * 0.01)));
     },
 
     getXBonusValue(index, grossSalary) {
